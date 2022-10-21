@@ -3898,7 +3898,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Sprite.Exps.X,
-		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.Sprite.Acts.Destroy,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Plugins.System.Acts.Wait,
@@ -3931,12 +3930,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.OnCollision,
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
 		C3.Plugins.Audio.Cnds.OnEnded,
+		C3.Plugins.System.Acts.SetLayerVisible,
 		C3.Plugins.Sprite.Acts.SetSize,
 		C3.Plugins.System.Acts.SetBoolVar,
-		C3.Plugins.System.Cnds.LayerVisible,
 		C3.Plugins.Touch.Cnds.OnTapGestureObject,
+		C3.Plugins.Audio.Acts.Stop,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.RestartLayout,
+		C3.Plugins.Keyboard.Cnds.OnKey,
+		C3.Plugins.Keyboard.Cnds.IsKeyDown,
 		C3.Plugins.System.Acts.GoToLayoutByName
 	];
 };
@@ -3972,6 +3974,11 @@ self.C3_JsPropNameTable = [
 	{bar_line: 0},
 	{note_T: 0},
 	{drum_T: 0},
+	{ins_key: 0},
+	{ins_finger: 0},
+	{line: 0},
+	{ins_mouse: 0},
+	{mask: 0},
 	{notes: 0},
 	{drums: 0},
 	{state: 0},
@@ -4087,7 +4094,6 @@ self.C3_ExpressionFuncs = [
 			return () => n0.ExpObject();
 		},
 		() => "count_down",
-		() => "GAME OVER",
 		() => "level1a",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4135,6 +4141,7 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 0.5,
 		() => "game_over",
+		() => "GAME OVER",
 		() => 8,
 		() => "UI",
 		() => 76,
@@ -4145,6 +4152,10 @@ self.C3_ExpressionFuncs = [
 		() => 98,
 		() => 93.6545,
 		() => 3,
+		() => "instruction",
+		() => "MASK",
+		() => "INSTRUCTION",
+		() => "insDK",
 		() => "level1b",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -4164,7 +4175,8 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpInstVar();
 		},
-		() => "level1c"
+		() => "level1c",
+		() => "level8c"
 ];
 
 
